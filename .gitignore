@@ -1,0 +1,8 @@
+project_si_config
+exe
+release
+release_x64
+obj
+moc
+tmp
+form_h

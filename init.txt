@@ -1,0 +1,7 @@
+D:/data/screenco/ml/ml_data/seabed/not_seabed_big/2325.png
+D:\data\screenco\ml\ml_data\seabed\not_seabed
+8 8
+40 40
+1 1
+0 360 30
+0
