@@ -29,7 +29,6 @@ mylib_options_include +=\
 						$(opt_inc) "$(source_mylib_common_dir)" \
 						$(opt_inc) "$(source_adaboost_lib_dir)" \
 						$(opt_inc) "$(source_desc_lib_dir)"
-#						$(opt_inc) "$(source_sift_lib_dir)"
 
 ##############################################
 

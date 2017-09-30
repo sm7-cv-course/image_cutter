@@ -6,13 +6,12 @@
 #define __SUCCESS 0
 
 CSlideWindow::CSlideWindow() {
-   //srand(time(NULL)) ;
+
 }
 
 int
 CSlideWindow::ProcessImage(QImage const&Img) {
 
-  //QVector<QPoint> ActualPts ; // массив координат актуальных блоков
   int rez ;
   for( int i = 0 ; i < Img.height() && !is_end() ; i += step_y ) {
     if(i + win_height > Img.height() ) continue ;
@@ -20,17 +19,13 @@ CSlideWindow::ProcessImage(QImage const&Img) {
     for( int j = 0 ; j < Img.width() && !is_end() ; j += step_x ) {
       if(j + win_height > Img.width()) continue ;
 
-      // получим очередное изображение для анализа
+      // ѕолучим очередное изображение дл€ анализа
       QImage ijImage = Img.copy(j, i, win_width, win_height) ;
-          //ijImage.save( QString("E:/Shtanov/images/For_classifier/temp/%1.bmp").arg( j + win_width * i ) ) ;
-      //save maked images
       
-      // заносим акутальную точку в массив
+      // «аносим акутальную точку в массив
       //if( isObject( ijImage ) ) ActualPts.push_back(QPoint(j, i)) ;
       if( isObject( ijImage ) ) rez = ijImage.save( QString( savePath+"\\"+QString("%1%2").arg(last_session).arg( j + i * Img.width() ) ) + ".png" ) ;
     } ;
-
-    //fprintf(stdout,"CSlideWindow::ProcessImage: i = %d : ActualPts - %d\n", i, ActualPts.size()) ;
   } ;
 
   return rez ;
@@ -57,7 +52,7 @@ CImageDescriptor::convertTo8(QImage const&InImg) {
 
 bool 
 CSlideWindow::isObject(QImage const&Img) {
-  // определим является ли найденный дескриптор объектом
+  // определим, €вл€етс€ ли найденный дескриптор объектом
   return true ;
 } ;
 

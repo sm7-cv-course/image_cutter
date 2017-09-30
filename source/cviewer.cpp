@@ -204,13 +204,13 @@ CViewer::stop_process() {
   CSlideWin_thread*pThread = dynamic_cast<CSlideWin_thread*> (_pProcessingThread) ;
   if(!pThread) return ;
 
-  //QImage MarkedImg = DrawRects(pThread->Image, pThread->ObjRects) ;
-  //fprintf(stdout,"MarkedImg.isNull() = %d : pThread->Image.isNull() = %d\n", MarkedImg.isNull(), pThread->Image.isNull()) ;
+  // QImage MarkedImg = DrawRects(pThread->Image, pThread->ObjRects) ;
+  // fprintf(stdout,"MarkedImg.isNull() = %d : pThread->Image.isNull() = %d\n", MarkedImg.isNull(), pThread->Image.isNull()) ;
 
-  //SetImage(MarkedImg) ;
+  // SetImage(MarkedImg) ;
 
 
-  //разморозим кнопку начала процесса обработки
+  // разморозим кнопку начала процесса обработки
   pushButton_start->setEnabled(true) ;
 } ;
 

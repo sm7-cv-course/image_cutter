@@ -18,10 +18,6 @@ library+=\
 	$(QT_DIR_VER)\lib\qtmaind.lib $(QT_DIR_VER)\lib\QtCored4.lib $(QT_DIR_VER)\lib\QtGuid4.lib \
 	$(QT_DIR_VER)\lib\Qt3Supportd4.lib $(QT_DIR_VER)\lib\QtNetworkd4.lib $(QT_DIR_VER)\lib\QtXmld4.lib
 else
-#	library+=\
-#	$(QT_DIR_VER)\lib\qtmain.lib $(QT_DIR_VER)\lib\QtCore4.lib $(QT_DIR_VER)\lib\QtGui4.lib \
-#	$(QT_DIR_VER)\lib\Qt3Support4.lib $(QT_DIR_VER)\lib\QtNetwork4.lib $(QT_DIR_VER)\lib\QtXml4.lib
-
 	library+=\
 	$(QT_DIR_VER)\lib\qtmain.lib $(QT_DIR_VER)\lib\QtCore4.lib $(QT_DIR_VER)\lib\QtGui4.lib
 
@@ -81,11 +77,6 @@ ifdef USE_OPENCV
 cpp_options += /D "USE_OPENCV"
 
 ifdef USE_OPENCV_2_3
-#library +=\
-#			$(CVLIB_DIR)/my/lib/opencv_calib3d231.lib\
-#			$(CVLIB_DIR)/my/lib/opencv_core231.lib\
-#			$(CVLIB_DIR)/my/lib/opencv_highgui231.lib
-
 library +=\
 			$(CVLIB_DIR)/x86/vc9/lib/opencv_calib3d231.lib\
 			$(CVLIB_DIR)/x86/vc9/lib/opencv_core231.lib\
@@ -142,7 +133,6 @@ endif
 # установки для cuda
 ifdef USE_CUDA
 
-#cpp_options+= $(opt_inc) "$(CUDA_DIR)/include" -D"USE_CUDA"
 cpp_options+= $(opt_inc) "$(CUDA_DIR)/include" /D "USE_CUDA"
 library+= $(CUDA_DIR)/lib/Win32/cuda.lib $(CUDA_DIR)/lib/Win32/cudart.lib
 

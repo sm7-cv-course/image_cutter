@@ -19,7 +19,6 @@ int main(int argc, char** argv) {
   CViewer Viewer(&scene) ;
   Viewer.show() ;
 
-  //return 0 ;
   return app.exec() ;
 } ;
 

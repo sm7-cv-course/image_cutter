@@ -8,7 +8,7 @@
 class CSlideWin_thread : public QThread, public CSlideWindow {
 Q_OBJECT 
 public: ;
-  QImage Image ; //!< изображение для обхода изображения
+  QImage Image ; //!< изображение для обхода
   QVector<QRect> ObjRects ; //!< массив прямоугольников, содержащих объекты
 public: ;
   CSlideWin_thread() ;

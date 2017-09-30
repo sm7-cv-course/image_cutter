@@ -17,7 +17,7 @@ private: ;
   QGraphicsPixmapItem*_pPMitem ; //!< מבתוךע סצוםû
   // The last destination path
   QString last_dest_path;
-  // Number of cutting processes for the same destination path. It is needed to append new cutted fragments, not replace
+  // Number of cutting sessions for the same destination path. It is needed to append new cutted fragments, not replace
   unsigned int cur_session;
 
 public: ;
@@ -44,6 +44,5 @@ public slots : ;
   void stop_process() ;
 
 };
-
 
 #endif
