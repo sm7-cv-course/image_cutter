@@ -8,21 +8,21 @@
 class CSlideWin_thread : public QThread, public CSlideWindow {
 Q_OBJECT 
 public: ;
-  QImage Image ; //!< èçîáðàæåíèå äëß îáõîäà
-  QVector<QRect> ObjRects ; //!< ìàññèâ ïðßìîóãîëüíèêîâ, ñîäåðæàùèõ îáúåêòû
+  QImage Image ; //!< Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¾Ð±Ñ…Ð¾Ð´Ð°
+  QVector<QRect> ObjRects ; //!< Ð¼Ð°ÑÑÐ¸Ð² Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ¾Ð², ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‰Ð¸Ñ… Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹
 public: ;
   CSlideWin_thread() ;
   virtual ~CSlideWin_thread() { } ;
 
-  //! ïåðåîïðåäåëèì ôóíêöèþ ïðîâåðêè îáúåêòà
+  //! Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ð¼ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°
   virtual bool isObject(QImage const&Img) ;
 
 protected: ;
-  //! çàïóñê ïðîöåññà îáðàáîòêè
+  //! Ð·Ð°Ð¿ÑƒÑÐº Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ° Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸
   virtual void run() ;
 
 signals: ;
-  //! ñèãíàë îá îáðàáîòàííîì îáðàçå
+  //! ÑÐ¸Ð³Ð½Ð°Ð» Ð¾Ð± Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð½Ð½Ð¾Ð¼ Ð¾Ð±Ñ€Ð°Ð·Ðµ
   void Signal_ProcessImage(bool result) ;
 
 } ;

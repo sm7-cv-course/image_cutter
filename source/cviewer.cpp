@@ -34,7 +34,7 @@ QImage DrawRects(QImage const&Img, QVector<QRect> const&Rects) {
   p.setPen(QPen(Qt::red)) ;
 
   for( int i = 0 ; i < Rects.size() ; i ++ ) {
-    p.drawRect(Rects[i]) ; // рисуем прмоугольник
+    p.drawRect(Rects[i]) ; // СЂРёСЃСѓРµРј РїСЂРјРѕСѓРіРѕР»СЊРЅРёРє
   } ;
   p.end() ;
 
@@ -58,7 +58,7 @@ CViewer::Read(QString const&Path) {
   int num_scales ;
   double angle1, angle2, angle_step ;
 
-  //читаем данные из файла
+  //С‡РёС‚Р°РµРј РґР°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р°
   {
     QTextStream ts(&file);
     ts>>Path1 ;
@@ -122,10 +122,10 @@ CViewer::CViewer( Cscene* pScene, QWidget*parent) : _scale(1.25),
                                                     _pScene(NULL),
                                                     _pProcessingThread(NULL),
                                                     _pPMitem(NULL) {
-  // установим диалоги ui-формы
+  // СѓСЃС‚Р°РЅРѕРІРёРј РґРёР°Р»РѕРіРё ui-С„РѕСЂРјС‹
   setupUi(this) ;
 
-  // устанавливаем сцену
+  // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃС†РµРЅСѓ
   if(pScene)
   {
     _pScene = pScene ;
@@ -136,7 +136,7 @@ CViewer::CViewer( Cscene* pScene, QWidget*parent) : _scale(1.25),
     graphicsView_viewer->setMouseTracking(true) ;
   } ;
 
-  // ограничим доступ к кнопкам
+  // РѕРіСЂР°РЅРёС‡РёРј РґРѕСЃС‚СѓРї Рє РєРЅРѕРїРєР°Рј
   //pushButton_start->setEnabled(false) ;
   //pushButton_stop->setEnabled(false) ;
   pushButton_stop->hide() ;
@@ -177,14 +177,14 @@ CViewer::SetImage( QImage const&Image) {
 
 void
 CViewer::Browse_raster() {
-  QString path = QFileDialog::getOpenFileName(this, QObject::tr("Выберите растр"), lineEdit_raster_path->text(), QObject::tr("(*)")) ;
+  QString path = QFileDialog::getOpenFileName(this, QObject::tr("В¬С‹Р±РµСЂРёС‚Рµ СЂР°СЃС‚СЂ"), lineEdit_raster_path->text(), QObject::tr("(*)")) ;
   if(path.isNull()) return ;
   lineEdit_raster_path->setText(path) ;
 } ;
 
 void
 CViewer::Browse_classifier() {
-  QString path = QFileDialog::getExistingDirectory(this, QObject::tr("Выберите путь к сохранемым фрагментам"), lineEdit_classifier_path->text()) ;
+  QString path = QFileDialog::getExistingDirectory(this, QObject::tr("В¬С‹Р±РµСЂРёС‚Рµ РїСѓС‚СЊ Рє СЃРѕС…СЂР°РЅРµРјС‹Рј С„СЂР°РіРјРµРЅС‚Р°Рј"), lineEdit_classifier_path->text()) ;
   if(path.isNull()) return ;
   lineEdit_classifier_path->setText(path) ;
 } ;
@@ -200,7 +200,7 @@ CViewer::Show_raster() {
 void
 CViewer::stop_process() {
 
-  // получим нить обработки
+  // РїРѕР»СѓС‡РёРј РЅРёС‚СЊ РѕР±СЂР°Р±РѕС‚РєРё
   CSlideWin_thread*pThread = dynamic_cast<CSlideWin_thread*> (_pProcessingThread) ;
   if(!pThread) return ;
 
@@ -210,7 +210,7 @@ CViewer::stop_process() {
   // SetImage(MarkedImg) ;
 
 
-  // разморозим кнопку начала процесса обработки
+  // СЂР°Р·РјРѕСЂРѕР·РёРј РєРЅРѕРїРєСѓ РЅР°С‡Р°Р»Р° РїСЂРѕС†РµСЃСЃР° РѕР±СЂР°Р±РѕС‚РєРё
   pushButton_start->setEnabled(true) ;
 } ;
 
@@ -224,14 +224,14 @@ CViewer::start_process() {
   fprintf(stdout,"CViewer::start_process\n") ;
   if(!_pScene) return ;
 
-  // удалим предудыщую нить обработки
+  // СѓРґР°Р»РёРј РїСЂРµРґСѓРґС‹С‰СѓСЋ РЅРёС‚СЊ РѕР±СЂР°Р±РѕС‚РєРё
   if(_pProcessingThread) delete _pProcessingThread ;
   _pProcessingThread = NULL ;
 
   QImage Img ;
   //CBinaryClassifier BinaryClassifier ;
 
-  // проверки корректности исходных данных
+  // РїСЂРѕРІРµСЂРєРё РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РёСЃС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…
   {
     if(!_pPMitem) return ;
     Img = _pPMitem->pixmap().toImage() ;
@@ -260,25 +260,25 @@ CViewer::start_process() {
   }
   
 
-  // количество просматриваемых окон
+  // РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРјС‹С… РѕРєРѕРЅ
   int NumWindows = pThread->CalculateNumWindows(Img.size()) ;
   if(NumWindows == 0) { delete pThread ; return ;}
 
-  // инициализируем нить обработки
+  // РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РЅРёС‚СЊ РѕР±СЂР°Р±РѕС‚РєРё
   _pProcessingThread = (QThread*)pThread ;
 
-  // установим свЯзи сигналов
+  // СѓСЃС‚Р°РЅРѕРІРёРј СЃРІСЏР·Рё СЃРёРіРЅР°Р»РѕРІ
   connect( pThread, SIGNAL(Signal_ProcessImage(bool)), this, SLOT(ShowPercent(bool)) ) ;
   connect( pThread, SIGNAL(finished()), this, SLOT(stop_process()) ) ;
 
-  // инициализируем диапазон обрабатываемых пар кадров
+  // РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РґРёР°РїР°Р·РѕРЅ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРјС‹С… РїР°СЂ РєР°РґСЂРѕРІ
   progressBar->setRange(0, NumWindows) ;
   progressBar->setValue(0) ;
 
-  //заморозим кнопку начала процесса обработки
+  //Р·Р°РјРѕСЂРѕР·РёРј РєРЅРѕРїРєСѓ РЅР°С‡Р°Р»Р° РїСЂРѕС†РµСЃСЃР° РѕР±СЂР°Р±РѕС‚РєРё
   pushButton_start->setEnabled(false) ;
 
-  //запуск процесса обработки
+  //Р·Р°РїСѓСЃРє РїСЂРѕС†РµСЃСЃР° РѕР±СЂР°Р±РѕС‚РєРё
   _pProcessingThread->start() ;
 
   fprintf(stdout,"CViewer::start_process - end\n") ;

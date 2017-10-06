@@ -36,21 +36,21 @@ USE_QT=yes
 ############################################################
 # flags
 ############################################################
-# расширение для объектных файлов
+# СЂР°СЃС€РёСЂРµРЅРёРµ РґР»СЏ РѕР±СЉРµРєС‚РЅС‹С… С„Р°Р№Р»РѕРІ
 ext_obj=obj
 
-# команда удаления файлов
+# РєРѕРјР°РЅРґР° СѓРґР°Р»РµРЅРёСЏ С„Р°Р№Р»РѕРІ
 command_del= rm -f
 
 SD=\\
 
-# знак для задания имени файла в include make
+# Р·РЅР°Рє РґР»СЏ Р·Р°РґР°РЅРёСЏ РёРјРµРЅРё С„Р°Р№Р»Р° РІ include make
 opt_f_b=<
 opt_f_e=>
 
-# опция для задания директорий с заголовочными файлами
+# РѕРїС†РёСЏ РґР»СЏ Р·Р°РґР°РЅРёСЏ РґРёСЂРµРєС‚РѕСЂРёР№ СЃ Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹РјРё С„Р°Р№Р»Р°РјРё
 opt_inc=/I
-# опиция f для make
+# РѕРїРёС†РёСЏ f РґР»СЏ make
 opt_make_f=-f
 
 ############################################################
@@ -62,7 +62,7 @@ library=kernel32.lib user32.lib gdi32.lib winspool.lib \
 		oleaut32.lib uuid.lib imm32.lib winmm.lib \
 		wsock32.lib opengl32.lib glu32.lib
 
-# опиции для компилятора С++  /RTC1 /Qopenmp
+# РѕРїРёС†РёРё РґР»СЏ РєРѕРјРїРёР»СЏС‚РѕСЂР° РЎ++  /RTC1 /Qopenmp
 ifdef DEBUG
 cpp_options=  /EHs /GR /D "WIN32"  /D "DEBUG" /D "_CONSOLE"  /D "WIN32API"  \
 				/D "_CRT_SECURE_NO_DEPRECATE"   \
@@ -75,7 +75,7 @@ cpp_options=  /EHs /GR /D "WIN32"   /D "_CONSOLE"  /D "WIN32API"  \
 				/Zc:wchar_t- /MT  /QaxNPT /Zp16 /Qparallel /Qpar-report1  /Qvec-report1 /Qopenmp
 endif
 ############################################################
-#подключение внешних библиотек
+#РїРѕРґРєР»СЋС‡РµРЅРёРµ РІРЅРµС€РЅРёС… Р±РёР±Р»РёРѕС‚РµРє
 include $(base_dir)/makefile_extern_lib.mak
 
 command_comp=$(CPP) /c $(cpp_options) $(cpp_options_include) $(qt_options) $(cpp_options_cuda) $(mylib_options_include) /Fo$@ $?

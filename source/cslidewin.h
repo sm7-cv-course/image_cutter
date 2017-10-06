@@ -5,48 +5,48 @@
 #include <QString>
 #include <QImage>
 
-/** бинарный классификатор
+/** Р±РёРЅР°СЂРЅС‹Р№ РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂ
 */
 /*class CBinaryClassifier {
 public: ;
-  QVector<SStump> StumData ; //!< данные классификатора
-  int DecisionRule ; //!< правило принЯтиЯ решениЯ
-  int oldFormat ; //!< флаг старого формата классификатора
+  QVector<SStump> StumData ; //!< РґР°РЅРЅС‹Рµ РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂР°
+  int DecisionRule ; //!< РїСЂР°РІРёР»Рѕ РїСЂРёРЅСЏС‚РёСЏ СЂРµС€РµРЅРёСЏ
+  int oldFormat ; //!< С„Р»Р°Рі СЃС‚Р°СЂРѕРіРѕ С„РѕСЂРјР°С‚Р° РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂР°
 public: ;
   CBinaryClassifier() : DecisionRule(1), oldFormat(0) { } ;
   virtual ~CBinaryClassifier() { } ;
 
-  //! чтение параметров классификатора
+  //! С‡С‚РµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂР°
   bool Read(QString const&Path) ;
 
-  //! решающее правило бинарного классификатора
+  //! СЂРµС€Р°СЋС‰РµРµ РїСЂР°РІРёР»Рѕ Р±РёРЅР°СЂРЅРѕРіРѕ РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂР°
   virtual bool isObject(QVector<double> &Descriptor) ;
 } ;*/
 
-/** дескриптор изображениЯ
+/** РґРµСЃРєСЂРёРїС‚РѕСЂ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 */
 /*class CImageDescriptor {
 public: ;
   CImageDescriptor() ;
   virtual ~CImageDescriptor() {} ;
-  //! вычисление дескриптора длЯ окна изображениЯ
+  //! РІС‹С‡РёСЃР»РµРЅРёРµ РґРµСЃРєСЂРёРїС‚РѕСЂР° РґР»СЏ РѕРєРЅР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
   virtual QVector<double> CalculateDescriptor(QImage const&Img)const ;
 
   static QImage convertTo8 (QImage const&argb32);
 } ; */
 
-/** настройки скользЯщего окна
+/** РЅР°СЃС‚СЂРѕР№РєРё СЃРєРѕР»СЊР·СЏС‰РµРіРѕ РѕРєРЅР°
 */
 struct SSlideWindowSettings {
-  int win_width ;  //!< ширина окна
-  int win_height ; //!< высота окна
-  int step_x ; //!< шаг обхода по ширине
-  int step_y ; //!< шаг обхода по высоте
+  int win_width ;  //!< С€РёСЂРёРЅР° РѕРєРЅР°
+  int win_height ; //!< РІС‹СЃРѕС‚Р° РѕРєРЅР°
+  int step_x ; //!< С€Р°Рі РѕР±С…РѕРґР° РїРѕ С€РёСЂРёРЅРµ
+  int step_y ; //!< С€Р°Рі РѕР±С…РѕРґР° РїРѕ РІС‹СЃРѕС‚Рµ
   unsigned int last_session;
 
   SSlideWindowSettings() : win_width(64), win_height(64), step_x(4), step_y(4) { } ;
 
-  //! количество обрабатываемых окон на изображении
+  //! РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРјС‹С… РѕРєРѕРЅ РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРё
   int CalculateNumWindows(QSize const&Size)const {
     if(Size.isNull()) return 0 ;
 
@@ -61,26 +61,26 @@ struct SSlideWindowSettings {
   
 } ;
 
-/** класс обхода изображениЯ скользЯщим окном:
-      - длЯ каждого окна вычислим дескриптор;
-      - идентифицируем дескриптор.    
+/** РєР»Р°СЃСЃ РѕР±С…РѕРґР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃРєРѕР»СЊР·СЏС‰РёРј РѕРєРЅРѕРј:
+      - РґР»СЏ РєР°Р¶РґРѕРіРѕ РѕРєРЅР° РІС‹С‡РёСЃР»РёРј РґРµСЃРєСЂРёРїС‚РѕСЂ;
+      - РёРґРµРЅС‚РёС„РёС†РёСЂСѓРµРј РґРµСЃРєСЂРёРїС‚РѕСЂ.    
 */
 class CSlideWindow : public SSlideWindowSettings {
 public: ;
   //CBinaryClassifier BinaryClassifier ;
-  //CImageDescriptor  ImageDescriptor ; //!< объект длЯ вычислениЯ дескриптора
+  //CImageDescriptor  ImageDescriptor ; //!< РѕР±СЉРµРєС‚ РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ РґРµСЃРєСЂРёРїС‚РѕСЂР°
   QString savePath ;
 public: ;
   CSlideWindow() ;
   virtual ~CSlideWindow() { } ;
 
-  //! обход изображениЯ скользЯщим окном
+  //! РѕР±С…РѕРґ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃРєРѕР»СЊР·СЏС‰РёРј РѕРєРЅРѕРј
   virtual int ProcessImage(QImage const&Img) ;
 
-  //! решающаЯ функциЯ длЯ обхода изображениЯ
+  //! СЂРµС€Р°СЋС‰Р°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РѕР±С…РѕРґР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
   virtual bool isObject(QImage const&Image) ;
 
-  //! условие окончаниЯ процесса обработки
+  //! СѓСЃР»РѕРІРёРµ РѕРєРѕРЅС‡Р°РЅРёСЏ РїСЂРѕС†РµСЃСЃР° РѕР±СЂР°Р±РѕС‚РєРё
   virtual bool is_end()const { return false ; }
 
 } ;

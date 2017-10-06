@@ -13,8 +13,8 @@ Q_OBJECT
 private: ;
   double _scale ;
   Cscene*_pScene ;
-  QThread*_pProcessingThread ;   //!< íèòü îáðàáîòêè
-  QGraphicsPixmapItem*_pPMitem ; //!< îáúåêò ñöåíû
+  QThread*_pProcessingThread ;   //!< Ð½Ð¸Ñ‚ÑŒ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸
+  QGraphicsPixmapItem*_pPMitem ; //!< Ð¾Ð±ÑŠÐµÐºÑ‚ ÑÑ†ÐµÐ½Ñ‹
   // The last destination path
   QString last_dest_path;
   // Number of cutting sessions for the same destination path. It is needed to append new cutted fragments, not replace

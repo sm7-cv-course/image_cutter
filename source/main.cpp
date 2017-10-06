@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
   QApplication app( n, 0 ) ; 
 
 #ifdef WIN32
-  // вывод сообщений на русском языке в консоль
+  // РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёР№ РЅР° СЂСѓСЃСЃРєРѕРј СЏР·С‹РєРµ РІ РєРѕРЅСЃРѕР»СЊ
   QTextCodec::setCodecForTr(QTextCodec::codecForName ("Windows-1251")) ;
 #endif
 

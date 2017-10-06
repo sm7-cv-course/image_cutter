@@ -3,42 +3,42 @@ include $(MAKE_FOR_SYSTEM)
 
 ##############################################
 
-# имя исполняемого файла
+# РёРјСЏ РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ С„Р°Р№Р»Р°
 app_name=slide_window.exe
 
-# директория с исходными файлами
+# РґРёСЂРµРєС‚РѕСЂРёСЏ СЃ РёСЃС…РѕРґРЅС‹РјРё С„Р°Р№Р»Р°РјРё
 source_dir=$(base_dir)/source
 
-# директория для объектных файлов
+# РґРёСЂРµРєС‚РѕСЂРёСЏ РґР»СЏ РѕР±СЉРµРєС‚РЅС‹С… С„Р°Р№Р»РѕРІ
 obj_dir=$(base_dir)/obj
 
-# директория для moc-файлов
+# РґРёСЂРµРєС‚РѕСЂРёСЏ РґР»СЏ moc-С„Р°Р№Р»РѕРІ
 moc_dir=$(base_dir)/moc
 
-# директория для выполняемого файла
+# РґРёСЂРµРєС‚РѕСЂРёСЏ РґР»СЏ РІС‹РїРѕР»РЅСЏРµРјРѕРіРѕ С„Р°Р№Р»Р°
 proc_dir=$(base_dir)/exe
 
-# директория с h-файлами оконных форм
+# РґРёСЂРµРєС‚РѕСЂРёСЏ СЃ h-С„Р°Р№Р»Р°РјРё РѕРєРѕРЅРЅС‹С… С„РѕСЂРј
 source_header_form_dir=$(base_dir)/form_h
 
-# директория с ui-файлами оконных форм
+# РґРёСЂРµРєС‚РѕСЂРёСЏ СЃ ui-С„Р°Р№Р»Р°РјРё РѕРєРѕРЅРЅС‹С… С„РѕСЂРј
 source_form_dir=$(base_dir)/form_ui
 
-# директория с заголовочными файлами
+# РґРёСЂРµРєС‚РѕСЂРёСЏ СЃ Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹РјРё С„Р°Р№Р»Р°РјРё
 cpp_options_include=$(opt_inc) "$(source_dir)" \
 							$(opt_inc) "$(source_header_form_dir)"
 
-# h-файлы с формами для окон
+# h-С„Р°Р№Р»С‹ СЃ С„РѕСЂРјР°РјРё РґР»СЏ РѕРєРѕРЅ
 h_file_widget=\
 	$(source_header_form_dir)/ui_viewer.h
 
-# объектные файла за исключением moc-файлов
+# РѕР±СЉРµРєС‚РЅС‹Рµ С„Р°Р№Р»Р° Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј moc-С„Р°Р№Р»РѕРІ
 obj_file=\
 	$(obj_dir)/main.$(ext_obj) \
 	$(obj_dir)/cviewer.$(ext_obj) \
 	$(obj_dir)/cscene.$(ext_obj)
 
-# объектные файлы полученные из moc-файлов						
+# РѕР±СЉРµРєС‚РЅС‹Рµ С„Р°Р№Р»С‹ РїРѕР»СѓС‡РµРЅРЅС‹Рµ РёР· moc-С„Р°Р№Р»РѕРІ						
 obj_moc_file=\
 	$(obj_dir)/cviewer_moc.$(ext_obj) \
 	$(obj_dir)/cscene_moc.$(ext_obj)
@@ -54,21 +54,21 @@ clean:
 	$(command_del) $(obj_moc_file)
 	$(command_del) $(proc_dir)/$(app_name)
 
-# описание цели "построение приложения"
+# РѕРїРёСЃР°РЅРёРµ С†РµР»Рё "РїРѕСЃС‚СЂРѕРµРЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ"
 program :  $(h_file_widget) $(proc_dir)/$(app_name)
 
-# создание h-файлов на основе ui-файлов
+# СЃРѕР·РґР°РЅРёРµ h-С„Р°Р№Р»РѕРІ РЅР° РѕСЃРЅРѕРІРµ ui-С„Р°Р№Р»РѕРІ
 $(source_header_form_dir)/ui_viewer.h : $(source_form_dir)/ui_viewer.ui
 	$(UIC) -o $@ $?
 
-# создание moc-файлов
+# СЃРѕР·РґР°РЅРёРµ moc-С„Р°Р№Р»РѕРІ
 $(moc_dir)/cviewer_moc.cpp : $(source_dir)/cviewer.h
 	$(MOC) -o $@ $?
 
 $(moc_dir)/cscene_moc.cpp : $(source_dir)/cscene.h
 	$(MOC) -o $@ $? 
 
-# исходные файлы
+# РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹
 
 #$(obj_dir)/ccorrelationprocess.$(ext_obj) : $(source_dir)/ccorrelationprocess.cpp
 #	$(command_comp)
@@ -93,7 +93,7 @@ $(source_dir)/cscene.cpp  : \
 		$(source_dir)/cscene.h
 	$(command_touch)
 
-# компиляция moc-файлов 
+# РєРѕРјРїРёР»СЏС†РёСЏ moc-С„Р°Р№Р»РѕРІ 
 $(obj_dir)/cviewer_moc.$(ext_obj) : $(moc_dir)/cviewer_moc.cpp
 	$(command_comp)	
 
@@ -102,12 +102,12 @@ $(obj_dir)/cscene_moc.$(ext_obj) : $(moc_dir)/cscene_moc.cpp
 
 ######################################################
 
-#  подключение дополнительных моделей
+#  РїРѕРґРєР»СЋС‡РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РјРѕРґРµР»РµР№
 include $(base_dir)/makefile_lib.mak
 
 ######################################################
 
-# создание приложения с помощью линьковщика
+# СЃРѕР·РґР°РЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ СЃ РїРѕРјРѕС‰СЊСЋ Р»РёРЅСЊРєРѕРІС‰РёРєР°
 $(proc_dir)/$(app_name) : $(obj_file) $(obj_moc_file) 
 	$(command_link)  $(obj_file) $(obj_moc_file) $(library)
 

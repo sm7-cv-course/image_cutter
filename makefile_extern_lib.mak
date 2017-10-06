@@ -23,7 +23,7 @@ else
 
 endif
 
-#опиции для компилятора С++ для работы с Qt 4.x
+#РѕРїРёС†РёРё РґР»СЏ РєРѕРјРїРёР»СЏС‚РѕСЂР° РЎ++ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Qt 4.x
 qt_options= /D "USE_QT" /D "QT3_SUPPORT" /D "QT_DLL" /D "QT_THREAD_SUPPORT" \
 	/D "QT_LARGEFILE_SUPPORT" /D "QT_EDITION=QT_EDITION_DESKTOP" /D "QT_GUI_LIB" /D "QT_CORE_LIB" 	
 
@@ -38,7 +38,7 @@ qt_options+= \
 
 endif
 
-#поключаем GDAL
+#РїРѕРєР»СЋС‡Р°РµРј GDAL
 ifdef USE_GDAL
 library+=\
 			$(GDAL_DIR)/lib/gdal_i.lib
@@ -49,7 +49,7 @@ lib_options_include +=\
 cpp_options += /D "USE_GDAL"		
 endif
 
-#поключаем LIBTIFF
+#РїРѕРєР»СЋС‡Р°РµРј LIBTIFF
 ifdef USE_LIBTIFF			
 library+=\
 			$(TIFF_DIR)/lib/libtiff.lib
@@ -61,7 +61,7 @@ cpp_options += /D "USE_LIBTIFF"
 
 endif
 
-#поключаем IPP
+#РїРѕРєР»СЋС‡Р°РµРј IPP
 ifdef USE_IPP
 library+=\
 			$(IPPLIB_DIR)/stublib/ippi.lib\
@@ -72,7 +72,7 @@ library+=\
 cpp_options += /D "USE_IPP"
 endif
 
-#поключаем OpenCV
+#РїРѕРєР»СЋС‡Р°РµРј OpenCV
 ifdef USE_OPENCV
 cpp_options += /D "USE_OPENCV"
 
@@ -109,7 +109,7 @@ endif
 
 endif			
 
-#поключаем MKL
+#РїРѕРєР»СЋС‡Р°РµРј MKL
 ifdef USE_MKL
 library+=\
 			$(LIB_MKL)/ia32/lib/mkl_c.lib $(LIB_MKL)/ia32/lib/mkl_s.lib \
@@ -130,7 +130,7 @@ library+= \
 endif			
 
 
-# установки для cuda
+# СѓСЃС‚Р°РЅРѕРІРєРё РґР»СЏ cuda
 ifdef USE_CUDA
 
 cpp_options+= $(opt_inc) "$(CUDA_DIR)/include" /D "USE_CUDA"
@@ -139,7 +139,7 @@ library+= $(CUDA_DIR)/lib/Win32/cuda.lib $(CUDA_DIR)/lib/Win32/cudart.lib
 cuda_options=-I"$(CUDA_DIR)/include" -D"USE_CUDA"
 cuda_options+= -I"$(source_mylib_common_dir)" -I"$(source_mylib_common_gpu_dir)"
 
-#если используется внешняя библиотека
+#РµСЃР»Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІРЅРµС€РЅСЏСЏ Р±РёР±Р»РёРѕС‚РµРєР°
 ifdef USE_OPENCV
 cuda_options+= -D"USE_OPENCV"
 

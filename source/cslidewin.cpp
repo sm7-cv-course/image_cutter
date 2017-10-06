@@ -19,10 +19,10 @@ CSlideWindow::ProcessImage(QImage const&Img) {
     for( int j = 0 ; j < Img.width() && !is_end() ; j += step_x ) {
       if(j + win_height > Img.width()) continue ;
 
-      // Получим очередное изображение для анализа
+      // РџРѕР»СѓС‡РёРј РѕС‡РµСЂРµРґРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РґР»СЏ Р°РЅР°Р»РёР·Р°
       QImage ijImage = Img.copy(j, i, win_width, win_height) ;
       
-      // Заносим акутальную точку в массив
+      // Р—Р°РЅРѕСЃРёРј Р°РєСѓС‚Р°Р»СЊРЅСѓСЋ С‚РѕС‡РєСѓ РІ РјР°СЃСЃРёРІ
       //if( isObject( ijImage ) ) ActualPts.push_back(QPoint(j, i)) ;
       if( isObject( ijImage ) ) rez = ijImage.save( QString( savePath+"\\"+QString("%1%2").arg(last_session).arg( j + i * Img.width() ) ) + ".png" ) ;
     } ;
@@ -52,7 +52,7 @@ CImageDescriptor::convertTo8(QImage const&InImg) {
 
 bool 
 CSlideWindow::isObject(QImage const&Img) {
-  // определим, является ли найденный дескриптор объектом
+  // РѕРїСЂРµРґРµР»РёРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РЅР°Р№РґРµРЅРЅС‹Р№ РґРµСЃРєСЂРёРїС‚РѕСЂ РѕР±СЉРµРєС‚РѕРј
   return true ;
 } ;
 
