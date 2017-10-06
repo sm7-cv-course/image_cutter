@@ -24,7 +24,7 @@ CSlideWindow::ProcessImage(QImage const&Img) {
       
       // Заносим акутальную точку в массив
       //if( isObject( ijImage ) ) ActualPts.push_back(QPoint(j, i)) ;
-      if( isObject( ijImage ) ) rez = ijImage.save( QString( savePath+"\\"+QString("%1%2").arg(last_session).arg( j + i * Img.width() ) ) + ".png" ) ;
+      if( isObject( ijImage ) ) rez = ijImage.save( QString( savePath + "/" + QString("%1%2").arg(last_session).arg( j + i * Img.width() ) ) + ".png" ) ;
     } ;
   } ;
 

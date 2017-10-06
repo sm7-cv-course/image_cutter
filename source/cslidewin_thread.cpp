@@ -1,7 +1,9 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "cslidewin_thread.h"
 
 CSlideWin_thread::CSlideWin_thread() {
-  fprintf(stdout,"CSlideWin_thread::CSlideWin_thread()\n") ;
+  fprintf(stdout, "CSlideWin_thread::CSlideWin_thread()\n") ;
 } ;
 
 bool 

@@ -1,7 +1,7 @@
-D:/data/screenco/ml/ml_data/seabed/not_seabed_big/T00001_00001_1_2height_cubic2.png
-D:\data\screenco\ml\ml_data\seabed\not_seabed\tmp
-8 8
-40 40
+/home/evgeny/Pictures/tmp/010.png
+/home/evgeny/Pictures/tmp
+1 15
+32 32
 1 1
-0 360 30
-1
+0.2 0 16
+0

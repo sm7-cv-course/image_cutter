@@ -1,4 +1,6 @@
 project_si_config
+bin
+build
 exe
 release
 release_x64
@@ -6,3 +8,4 @@ obj
 moc
 tmp
 form_h
+
